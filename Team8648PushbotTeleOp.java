@@ -3,15 +3,18 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.Range;
 
 
-//@TeleOp(name="Pushbot: Team8648 Pushbot Teleop", group="Pushbot")
+@TeleOp(name="Pushbot: Team8648 Pushbot Teleop", group="Pushbot")
 //@Disabled
 public class Team8648PushbotTeleOp extends OpMode {
 
     Team8648HardwarePushbot robot = new Team8648HardwarePushbot();
     public static final double ARM_UP_POWER    =  0.45 ;
     public static final double ARM_DOWN_POWER  = -0.45 ;
+    double          clawOffset  = 0.0 ;                  // Servo mid position
+    final double    CLAW_SPEED  = 0.02 ;
 
 
 
@@ -52,14 +55,31 @@ public class Team8648PushbotTeleOp extends OpMode {
         double right;
         double armMotor;
         double armRaiseMotor;
+        double armRaiseMotor2;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
 
+        //armRaiseMotor = gamepad2.left_stick_y;
+        //armRaiseMotor2 = gamepad2.left_stick_y;
+
+
+        // Use gamepad buttons to move the arm up (Y) and down (A)
+        if (gamepad2.y)
+            robot.armRaise.setPower(0.75);
+        else if (gamepad2.a)
+            robot.armRaise2.setPower(-0.75);
+        else
+            robot.armRaise2.setPower(1);
+        robot.armRaise2.setTargetPosition(robot.armRaise2.getCurrentPosition());
+
+
+
         //arm
         //armMotor = -gamepad2.right_stick_y;
         //armRaiseMotor = -gamepad2.left_stick_y;
+        //armRaiseMotor2 = -gamepad2.left_stick_y;
 
 
         if (gamepad2.right_bumper)
@@ -101,6 +121,17 @@ public class Team8648PushbotTeleOp extends OpMode {
             robot.lift.setTargetPosition(robot.lift.getCurrentPosition());
 
 
+        if (gamepad2.x)
+            clawOffset += CLAW_SPEED;
+        else if (gamepad2.b)
+            clawOffset -= CLAW_SPEED;
+
+        // Move both servos to new position.  Assume servos are mirror image of each other.
+        clawOffset = Range.clip(clawOffset, -0.5, 0.5);
+        robot.leftClaw.setPosition(robot.MID_SERVO + clawOffset);
+        robot.rightClaw.setPosition(robot.MID_SERVO - clawOffset);
+
+
         //Continous Servo...
 //        if(gamepad2.a)
 //            robot.armServo.setPosition(1);
@@ -116,62 +147,8 @@ public class Team8648PushbotTeleOp extends OpMode {
         //telemetry.addData("right", "%.2f", right);
     }
 
-    /*
-     * Code to run ONCE after the driver hits STOP
-     */
-//    public void encoderDrive(double speed,
-//                             double leftInches, double rightInches,
-//                             double timeoutS) {
-//        int newLeftTarget;
-//        int newRightTarget;
-//
-//        // Ensure that the opmode is still active
-//        if (opModeIsActive()) {
-//
-//            // Determine new target position, and pass to motor controller
-//            newLeftTarget = robot.leftDrive.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
-//            newRightTarget = robot.rightDrive.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-//            robot.leftDrive.setTargetPosition(newLeftTarget);
-//            robot.rightDrive.setTargetPosition(newRightTarget);
-//
-//            // Turn On RUN_TO_POSITION
-//            robot.leftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//            robot.rightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//
-//            // reset the timeout time and start motion.
-//            runtime.reset();
-//            robot.leftDrive.setPower(Math.abs(speed));
-//            robot.rightDrive.setPower(Math.abs(speed));
-//
-//            // keep looping while we are still active, and there is time left, and both motors are running.
-//            // Note: We use (isBusy() && isBusy()) in the loop test, which means that when EITHER motor hits
-//            // its target position, the motion will stop.  This is "safer" in the event that the robot will
-//            // always end the motion as soon as possible.
-//            // However, if you require that BOTH motors have finished their moves before the robot continues
-//            // onto the next step, use (isBusy() || isBusy()) in the loop test.
-//            while (opModeIsActive() &&
-//                    (runtime.seconds() < timeoutS) &&
-//                    (robot.leftDrive.isBusy() && robot.rightDrive.isBusy())) {
-//
-//                // Display it for the driver.
-//                telemetry.addData("Path1",  "Running to %7d :%7d", newLeftTarget,  newRightTarget);
-//                telemetry.addData("Path2",  "Running at %7d :%7d",
-//                        robot.leftDrive.getCurrentPosition(),
-//                        robot.rightDrive.getCurrentPosition());
-//                telemetry.update();
-//            }
-//
-//            // Stop all motion;
-//            robot.leftDrive.setPower(0);
-//            robot.rightDrive.setPower(0);
-//
-//            // Turn off RUN_TO_POSITION
-//            robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//            robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//
-//            //  sleep(250);   // optional pause after each move
-//        }
-//    }
+
+
     @Override
     public void stop() {
     }
