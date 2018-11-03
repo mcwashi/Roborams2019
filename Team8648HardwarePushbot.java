@@ -3,8 +3,8 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class Team8648HardwarePushbot {
 
@@ -14,8 +14,8 @@ public class Team8648HardwarePushbot {
     public DcMotor lift     = null;
     public DcMotor arm    = null;
     public DcMotor armRaise = null;
+    public Servo armServo    = null;
 
-    //public Servo armServo    = null;
 
 
 
@@ -47,8 +47,9 @@ public class Team8648HardwarePushbot {
 
 
 
-        colorSensor = hwMap.get(ColorSensor.class, "ColorSensor");
-        colorSensor.enableLed(true);
+
+//        colorSensor = hwMap.get(ColorSensor.class, "ColorSensor");
+//        colorSensor.enableLed(true);
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         rightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
@@ -63,19 +64,17 @@ public class Team8648HardwarePushbot {
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        lift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        armRaise.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        leftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        rightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        lift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        armRaise.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
 
 
         // Define and initialize ALL installed servos.
-        //armServo  = hwMap.get(Servo.class, "ArmServo");
-
-
-        //armServo.setPosition(.5);
+        armServo  = hwMap.get(Servo.class, "ArmServo");
+        armServo.setPosition(.5);
 
     }
 }

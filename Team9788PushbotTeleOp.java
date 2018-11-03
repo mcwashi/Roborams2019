@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
 @TeleOp(name="Pushbot: Team9788 Pushbot Teleop", group="Pushbot")
-@Disabled
+//@Disabled
 public class Team9788PushbotTeleOp extends OpMode {
 
     Team9788HardwarePushbot robot = new Team9788HardwarePushbot();
@@ -47,23 +47,23 @@ public class Team9788PushbotTeleOp extends OpMode {
     public void loop() {
         double left;
         double right;
-       // double whiteMotor;
+        double whiteMotor;
         double yellowMotor;
         double greenMotor = 0;
         double blueMotor = 0;
         double redMotor = 0;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        left = -gamepad1.left_stick_y;
-        right = -gamepad1.right_stick_y;
+        left = gamepad1.left_stick_y;
+        right = gamepad1.right_stick_y;
 
 
-       // whiteMotor = -gamepad2.left_stick_y;
         yellowMotor = -gamepad2.right_stick_y;
+        whiteMotor = gamepad2.right_stick_y;
 
         robot.leftDrive.setPower(left);
         robot.rightDrive.setPower(right);
-        //robot.white.setPower(whiteMotor);//changed**
+        robot.white.setPower(whiteMotor);//changed**
         robot.yellow.setPower(yellowMotor);//changed***
         robot.green.setPower(greenMotor);
         robot.blue.setPower(blueMotor);
@@ -72,11 +72,12 @@ public class Team9788PushbotTeleOp extends OpMode {
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
         if (gamepad1.y)
-            robot.yellow.setPower(1);
+            robot.yellow.setPower(0.75);
         else if (gamepad1.a)
-            robot.yellow.setPower(-0.01);
+            robot.yellow.setPower(-0.75);
         else
-            robot.yellow.setPower(0);
+            robot.yellow.setPower(1);
+            robot.yellow.setTargetPosition(robot.yellow.getCurrentPosition());
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
 //        if (gamepad2.y)
@@ -91,21 +92,21 @@ public class Team9788PushbotTeleOp extends OpMode {
         if (gamepad1.dpad_up)
             robot.green.setPower(1);
         else if (gamepad1.dpad_down)
-            robot.green.setPower(-0.01);
+            robot.green.setPower(-1);
         else
             robot.green.setPower(0);
 
         if (gamepad2.dpad_up)
             robot.red.setPower(1);
         else if (gamepad2.dpad_down)
-            robot.red.setPower(-0.01);
+            robot.red.setPower(-1);
         else
             robot.red.setPower(0);
 
         if (gamepad2.dpad_left)
             robot.blue.setPower(1);
         else if (gamepad2.dpad_right)
-            robot.blue.setPower(-0.01);
+            robot.blue.setPower(-1);
         else
             robot.blue.setPower(0);
 
