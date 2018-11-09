@@ -1,9 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.app.Activity;
+import android.view.View;
+
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -19,6 +23,7 @@ public class Team8648HardwarePushbot {
     public Servo    leftClaw    = null;
     public Servo    rightClaw   = null;
     public Servo    markServo   = null;
+    public ColorSensor colorSensor;
 
 
 
@@ -40,7 +45,7 @@ public class Team8648HardwarePushbot {
     public void init(HardwareMap ahwMap) {
         // Save reference to Hardware map
         hwMap = ahwMap;
-        ColorSensor colorSensor;
+        //ColorSensor colorSensor;
 
         // Define and Initialize Motors
         leftDrive  = hwMap.get(DcMotor.class, "LeftMotor");
@@ -52,9 +57,8 @@ public class Team8648HardwarePushbot {
 
 
 
-
-//        colorSensor = hwMap.get(ColorSensor.class, "ColorSensor");
-//        colorSensor.enableLed(true);
+        colorSensor = hwMap.get(ColorSensor.class, "ColorSensor");
+        colorSensor.enableLed(true);
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         rightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
@@ -72,13 +76,19 @@ public class Team8648HardwarePushbot {
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        leftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        rightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        lift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        armRaise.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        armRaise2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        lift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        armRaise.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        armRaise2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armRaise.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armRaise2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
         // Define and initialize ALL installed servos.
