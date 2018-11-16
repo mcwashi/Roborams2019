@@ -11,19 +11,14 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
-import com.qualcomm.robotcore.hardware.NormalizedRGBA;
-import com.qualcomm.robotcore.hardware.SwitchableLight;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-
-
-
-@Autonomous(name="Pushbot: Team8648 Autonomous", group="Pushbot")
+//@Autonomous(name="Pushbot: Team9788 Autonomous", group="Pushbot")
 //@Disabled
-public class Team8648Autonomous extends LinearOpMode {
+public class Team9788Autonomous extends LinearOpMode {
 
-    Team8648HardwarePushbot robot = new Team8648HardwarePushbot();
+    Team9788HardwarePushbot robot = new Team9788HardwarePushbot();
     HardwareMap hwMap           =  null;
 
 
@@ -93,8 +88,37 @@ public class Team8648Autonomous extends LinearOpMode {
         waitForStart();
 
         // convert the RGB values to HSV values.
-        Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
+        //Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
 
+        robot.green.setPower(.48);
+
+
+        sleep(2500);
+
+        robot.green.setPower(0);
+
+        //encoderDrive(DRIVE_SPEED,  1,  1, 3);  // S1: Forward 47 Inches with 5 Sec timeout
+        robot.rightDrive.setPower(-0.5);
+        robot.leftDrive.setPower(-0.5);
+        sleep(350);
+
+        robot.leftDrive.setPower(0);
+        robot.rightDrive.setPower(0);
+        sleep(500);
+
+        robot.rightDrive.setPower(0.75);
+        robot.leftDrive.setPower(-0.75);
+        sleep(750);
+
+        robot.rightDrive.setPower(0);
+        robot.leftDrive.setPower(0);
+        sleep(500);
+
+        sleep(2500);
+
+
+        telemetry.addData("IsAligned" , detector.getAligned()); // Is the bot aligned with the gold mineral?
+        telemetry.addData("X Pos" , detector.getXPosition()); // Gold X position.
 
 
 
@@ -104,10 +128,10 @@ public class Team8648Autonomous extends LinearOpMode {
         if((detector.getXPosition() < 680)  && (detector.getXPosition() > 405)){
 
             detector.disable();
-            robot.lift.setPower(.48);
+            robot.green.setPower(.48);
             sleep(2750);
 
-            robot.lift.setPower(0);
+            robot.green.setPower(0);
 
             robot.rightDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
@@ -117,8 +141,8 @@ public class Team8648Autonomous extends LinearOpMode {
             robot.rightDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
+            robot.rightDrive.setPower(-0.75);
+            robot.leftDrive.setPower(0.75);
             sleep(325);
 
             robot.rightDrive.setPower(0);
@@ -183,28 +207,18 @@ public class Team8648Autonomous extends LinearOpMode {
 //            //Drop the marker
 //            robot.markServo.setPosition(0);
 
-
-
-
-
-
-
-
-
-
-
             telemetry.addData("IsAligned" , detector.getAligned()); // Is the bot aligned with the gold mineral?
             telemetry.addData("X Pos" , detector.getXPosition()); // Gold X position.
         }
-        else if((detector.getXPosition() < 385)  && (detector.getXPosition() > 180)){
+        else if((detector.getXPosition() < 350)  && (detector.getXPosition() > 180)){
 
             detector.disable();
-            robot.lift.setPower(.48);
+            robot.green.setPower(.48);
 
 
             sleep(2750);
 
-            robot.lift.setPower(0);
+            robot.green.setPower(0);
 
             robot.rightDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
@@ -214,9 +228,9 @@ public class Team8648Autonomous extends LinearOpMode {
             robot.rightDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
-            sleep(470);
+            robot.rightDrive.setPower(-0.75);
+            robot.leftDrive.setPower(0.75);
+            sleep(560);
 
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
@@ -231,12 +245,12 @@ public class Team8648Autonomous extends LinearOpMode {
         }
         else{
             detector.disable();
-            robot.lift.setPower(.48);
+            robot.green.setPower(.48);
 
 
             sleep(2750);
 
-            robot.lift.setPower(0);
+            robot.green.setPower(0);
 
             robot.rightDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
@@ -246,9 +260,9 @@ public class Team8648Autonomous extends LinearOpMode {
             robot.rightDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
-            sleep(750);
+            robot.rightDrive.setPower(-0.75);
+            robot.leftDrive.setPower(0.75);
+            sleep(825);
 
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
@@ -258,10 +272,9 @@ public class Team8648Autonomous extends LinearOpMode {
             robot.leftDrive.setPower(0.5);
             //sleep(250);
 
-            sleep(450);
-
-
+            sleep(500);
         }
+
 
 
 

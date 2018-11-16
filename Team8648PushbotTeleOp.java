@@ -164,11 +164,13 @@ public class Team8648PushbotTeleOp extends OpMode {
 
 
         //Continous Servo...
-//        if(gamepad2.a)
-//            robot.armServo.setPosition(1);
-//        else if (gamepad2.y)
-//            robot.armServo.setPosition(0);
-//        else robot.armServo.setPosition(.5);
+         if(gamepad2.left_bumper){
+             robot.markServo.setPosition(1);
+         }
+         else{
+             robot.markServo.setPosition(0);
+         }
+
 
 
 
