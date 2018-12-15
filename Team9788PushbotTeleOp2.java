@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
-//@TeleOp(name="Pushbot: Team9788 Pushbot Teleop2", group="Pushbot")
+@TeleOp(name="Pushbot: Team9788 Pushbot Teleop2", group="Pushbot")
 //@Disabled
 public class Team9788PushbotTeleOp2 extends OpMode {
 
@@ -62,6 +62,10 @@ public class Team9788PushbotTeleOp2 extends OpMode {
         left = gamepad1.left_stick_y;
         right = gamepad1.right_stick_y;
 
+        yellowMotor = gamepad2.left_stick_y;
+
+
+
 
         //yellowMotor = -gamepad2.right_stick_y;
        // whiteMotor = gamepad2.right_stick_y;
@@ -73,25 +77,38 @@ public class Team9788PushbotTeleOp2 extends OpMode {
         robot.green.setPower(greenMotor);
         robot.blue.setPower(blueMotor);
         robot.red.setPower(redMotor);
-        robot.yellow.setPower(-1);
+        robot.yellow.setPower(yellowMotor);
         //robot.white.setPower(1);
 
 
-        if(gamepad2.a){
-
-            robot.yellow.setTargetPosition(robot.yellow.getCurrentPosition()+50);
-            //robot.white.setTargetPosition(robot.white.getCurrentPosition()+50);
-        }
-        else if(gamepad2.y){
-            robot.yellow.setTargetPosition(robot.yellow.getCurrentPosition()-50);
-            //robot.white.setTargetPosition(robot.white.getCurrentPosition()-50);
+        //Continous Servo...
+        if(gamepad2.left_bumper){
+            robot.clawServo.setPosition(1);
         }
         else{
-            robot.yellow.setPower(-0.5);
-            //robot.white.setPower(0.5);
-            robot.yellow.setTargetPosition(robot.yellow.getCurrentPosition());
-            //robot.white.setTargetPosition(robot.white.getCurrentPosition());
+            robot.clawServo.setPosition(0);
         }
+
+
+
+//
+//        if(gamepad2.a){
+//            robot.yellow.setPower(1);
+//            //robot.yellow.setTargetPosition(robot.yellow.getCurrentPosition()+50);
+//            //robot.white.setTargetPosition(robot.white.getCurrentPosition()+50);
+//        }
+//        else if(gamepad2.y){
+//            robot.yellow.setPower(-1);
+//            //robot.yellow.setTargetPosition(robot.yellow.getCurrentPosition()-50);
+//            //robot.white.setTargetPosition(robot.white.getCurrentPosition()-50);
+//        }
+//        else{
+//            robot.yellow.setPower(0);
+//            //robot.yellow.setPower(-0.5);
+//            //robot.white.setPower(0.5);
+//            robot.yellow.setTargetPosition(robot.yellow.getCurrentPosition());
+//            //robot.white.setTargetPosition(robot.white.getCurrentPosition());
+//        }
 
 
 

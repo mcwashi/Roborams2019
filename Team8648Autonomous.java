@@ -19,7 +19,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 
-@Autonomous(name="Pushbot: Team8648 Autonomous", group="Pushbot")
+//@Autonomous(name="Pushbot: Team8648 Autonomous", group="Pushbot")
 //@Disabled
 public class Team8648Autonomous extends LinearOpMode {
 

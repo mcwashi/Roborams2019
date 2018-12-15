@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Pushbot: Test By Encoders", group="Pushbot")
+//@Autonomous(name="Pushbot: Test By Encoders", group="Pushbot")
 public class AutoDriveByEncoder extends LinearOpMode{
 
     /* Declare OpMode members. */

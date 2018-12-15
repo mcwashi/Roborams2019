@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class Team9788HardwarePushbot {
@@ -14,6 +15,8 @@ public class Team9788HardwarePushbot {
     public DcMotor green    = null;
     public DcMotor blue    = null;
     public DcMotor red    = null;
+    public Servo clawServo   = null;
+
 
 
 
@@ -48,28 +51,31 @@ public class Team9788HardwarePushbot {
         // Set all motors to zero power
         leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        yellow.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //yellow.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //white.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        green.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        blue.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //green.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //blue.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //red.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 //        //leftDrive.setPower(0);
 //        //rightDrive.setPower(0);
-//        yellow.setPower(0);
+        yellow.setPower(0);
 //        white.setPower(0);
-//        green.setPower(0);
-//        blue.setPower(0);
+        green.setPower(0);
+        blue.setPower(0);
         red.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
         leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        yellow.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //yellow.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        yellow.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //white.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         green.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         blue.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         red.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        clawServo = hwMap.get(Servo.class, "clawServo");
 
 
     }

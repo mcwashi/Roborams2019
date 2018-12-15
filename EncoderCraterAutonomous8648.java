@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Autonomous: EncoderCraterAutonomous8648", group="Pushbot")
+//@Autonomous(name="Autonomous: EncoderCraterAutonomous8648", group="Pushbot")
 //@Disabled
 public class EncoderCraterAutonomous8648 extends LinearOpMode {
 
