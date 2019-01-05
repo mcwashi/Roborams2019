@@ -67,7 +67,7 @@ public class Team9788PushbotTeleOp extends OpMode {
         robot.yellow.setPower(yellowMotor);//changed***
         robot.green.setPower(greenMotor);
         robot.blue.setPower(blueMotor);
-        robot.red.setPower(redMotor);
+        //robot.red.setPower(redMotor);
 
 
         // Use gamepad buttons to move the arm up (Y) and down (A)
@@ -96,12 +96,12 @@ public class Team9788PushbotTeleOp extends OpMode {
         else
             robot.green.setPower(0);
 
-        if (gamepad2.dpad_up)
-            robot.red.setPower(1);
-        else if (gamepad2.dpad_down)
-            robot.red.setPower(-1);
-        else
-            robot.red.setPower(0);
+//        if (gamepad2.dpad_up)
+//            robot.red.setPower(1);
+//        else if (gamepad2.dpad_down)
+//            robot.red.setPower(-1);
+//        else
+//            robot.red.setPower(0);
 
         if (gamepad2.dpad_left)
             robot.blue.setPower(1);

@@ -17,7 +17,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 
-//@Autonomous(name="Pushbot: Team8648 Autonomous Depot", group="Pushbot")
+@Autonomous(name="Pushbot: Team8648 Autonomous Depot", group="Pushbot")
 //@Disabled
 public class DepotAutonomous8648 extends LinearOpMode {
 
@@ -103,7 +103,7 @@ public class DepotAutonomous8648 extends LinearOpMode {
 
             detector.disable();
             robot.lift.setPower(.48);
-            sleep(2750);
+            sleep(2450);
 
             robot.lift.setPower(0);
 
@@ -117,16 +117,16 @@ public class DepotAutonomous8648 extends LinearOpMode {
 
             robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(-0.75);
-            sleep(325);
+            sleep(400);
 
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.65);
             robot.leftDrive.setPower(0.5);
             //sleep(250);
-            sleep(500);
+            sleep(900);
 
 
             //stop
@@ -157,58 +157,22 @@ public class DepotAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
             //Drive forward
-            robot.rightDrive.setPower(0.15);
-            robot.leftDrive.setPower(0.15);
-            sleep(500);
+            robot.rightDrive.setPower(0.50);
+            robot.leftDrive.setPower(0.50);
+            sleep(750);
 //
 //            //stop
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             sleep(1000);
-////
-////            //turn to left
-//            robot.rightDrive.setPower(0.75);
-//            robot.leftDrive.setPower(-0.75);
-//            sleep(200);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(1000);
-////
-////            //Drive forward
-//            robot.rightDrive.setPower(0.5);
-//            robot.leftDrive.setPower(0.5);
-//            sleep(1000);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(900);
-//
-//            //Drop the marker
-            robot.markServo.setPosition(0);
 
-
-
-
-
-
-
-
-
-
-
-            telemetry.addData("IsAligned" , detector.getAligned()); // Is the bot aligned with the gold mineral?
-            telemetry.addData("X Pos" , detector.getXPosition()); // Gold X position.
+            robot.markServo.setPosition(1);
         }
         else if((detector.getXPosition() < 385)  && (detector.getXPosition() > 180)){
 
             detector.disable();
             robot.lift.setPower(.48);
-
-
-            sleep(2750);
+            sleep(2450);
 
             robot.lift.setPower(0);
 
@@ -220,7 +184,7 @@ public class DepotAutonomous8648 extends LinearOpMode {
             robot.rightDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.75);
+            robot.rightDrive.setPower(0.90);
             robot.leftDrive.setPower(-0.75);
             sleep(470);
 
@@ -228,10 +192,10 @@ public class DepotAutonomous8648 extends LinearOpMode {
             robot.leftDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
             //sleep(250);
-            sleep(380);
+            sleep(650);
 
             //stop
             robot.rightDrive.setPower(0);
@@ -239,57 +203,18 @@ public class DepotAutonomous8648 extends LinearOpMode {
             sleep(1000);
 
             //forward
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
-            sleep(650);
+            sleep(250);
 //
             //stop
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             sleep(1000);
 //
-            //turn to left
-//            robot.rightDrive.setPower(0.75);
-//            robot.leftDrive.setPower(-0.75);
-//            sleep(650);
-//
-            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(1000);
-////
-//            //Drive forward
-//            robot.rightDrive.setPower(0.15);
-//            robot.leftDrive.setPower(0.15);
-//            sleep(1000);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(1000);
-////
-////            //turn to left
-//            robot.rightDrive.setPower(0.75);
-//            robot.leftDrive.setPower(-0.75);
-//            sleep(200);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(1000);
-////
-////            //Drive forward
-//            robot.rightDrive.setPower(0.5);
-//            robot.leftDrive.setPower(0.5);
-//            sleep(1000);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(900);
-//
+
 //            //Drop the marker
-            robot.markServo.setPosition(0);
+            robot.markServo.setPosition(1);
 
 
 
@@ -297,9 +222,7 @@ public class DepotAutonomous8648 extends LinearOpMode {
         else{
             detector.disable();
             robot.lift.setPower(.48);
-
-
-            sleep(2750);
+            sleep(2450);
 
             robot.lift.setPower(0);
 
@@ -319,7 +242,7 @@ public class DepotAutonomous8648 extends LinearOpMode {
             robot.leftDrive.setPower(0);
             sleep(1000);
 
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
             sleep(450);
 
@@ -330,7 +253,7 @@ public class DepotAutonomous8648 extends LinearOpMode {
 
 
             //forward
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
             sleep(300);
 //
@@ -350,7 +273,7 @@ public class DepotAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
             //Drive forward
-            robot.rightDrive.setPower(0.15);
+            robot.rightDrive.setPower(0.35);
             robot.leftDrive.setPower(0.15);
             sleep(1000);
 //
@@ -380,7 +303,7 @@ public class DepotAutonomous8648 extends LinearOpMode {
 //            sleep(900);
 //
 //            //Drop the marker
-            robot.markServo.setPosition(0);
+            robot.markServo.setPosition(1);
 
 
 

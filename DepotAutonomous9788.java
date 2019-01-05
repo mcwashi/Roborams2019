@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Pushbot: Team9799 Autonomous Depot", group="Pushbot")
+//@Autonomous(name="Pushbot: Team9788 Autonomous Depot", group="Pushbot")
 //@Disabled
 public class DepotAutonomous9788 extends LinearOpMode {
 
@@ -37,6 +37,9 @@ public class DepotAutonomous9788 extends LinearOpMode {
     static final double WHEEL_DIAMETER_INCHES = 4.0;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
+
+    //static final double COUNTS_PER_ROTATION = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
+      //      (WHEEL_DIAMETER_INCHES * 3.1415);
     static final double DRIVE_SPEED = 0.3;
     static final double TURN_SPEED = 0.5;
 
@@ -96,293 +99,169 @@ public class DepotAutonomous9788 extends LinearOpMode {
         if((detector.getXPosition() < 680)  && (detector.getXPosition() > 405)){
 
             detector.disable();
-            robot.green.setPower(.48);
-            sleep(2750);
+            robot.green.setPower(.35);
+            sleep(7000);
+
+            //encoderGreenWithoutTime(.35, 6);
 
             robot.green.setPower(0);
 
             robot.rightDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
-            sleep(350);
+            sleep(275);
 
             robot.leftDrive.setPower(0);
             robot.rightDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
-            sleep(325);
+            robot.rightDrive.setPower(-0.75);
+            robot.leftDrive.setPower(0.75);
+            sleep(700);
 
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.5);
-            robot.leftDrive.setPower(0.5);
-            //sleep(250);
-            sleep(500);
-
-
-            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-
-
-
-            //forward
-            robot.rightDrive.setPower(0.5);
-            robot.leftDrive.setPower(0.5);
-            sleep(350);
-//
-            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-//
-            //turn to left
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
-            sleep(650);
-//
-            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-//
-            //Drive forward
-            robot.rightDrive.setPower(0.15);
-            robot.leftDrive.setPower(0.15);
-            sleep(500);
-//
-//            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-////
-////            //turn to left
-//            robot.rightDrive.setPower(0.75);
-//            robot.leftDrive.setPower(-0.75);
-//            sleep(200);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(1000);
-////
-////            //Drive forward
-//            robot.rightDrive.setPower(0.5);
-//            robot.leftDrive.setPower(0.5);
-//            sleep(1000);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(900);
-//
-//            //Drop the marker
-            //robot.markServo.setPosition(0);
+            robot.rightDrive.setPower(0.25);
+            robot.leftDrive.setPower(0.25);
+            sleep(700);
 
 
 
 
-
-
-
-
-
-
-
-            telemetry.addData("IsAligned" , detector.getAligned()); // Is the bot aligned with the gold mineral?
-            telemetry.addData("X Pos" , detector.getXPosition()); // Gold X position.
         }
         else if((detector.getXPosition() < 385)  && (detector.getXPosition() > 180)){
 
             detector.disable();
-            robot.green.setPower(.48);
+            robot.green.setPower(.35);
+            sleep(7000);
 
-
-            sleep(2750);
+            //encoderGreenWithoutTime(.35, 6);
 
             robot.green.setPower(0);
 
             robot.rightDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
-            sleep(350);
+            sleep(275);
 
             robot.leftDrive.setPower(0);
             robot.rightDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
-            sleep(470);
+            robot.rightDrive.setPower(-0.75);
+            robot.leftDrive.setPower(0.75);
+            sleep(800);
 
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.5);
-            robot.leftDrive.setPower(0.5);
+            //First Drive
+            robot.rightDrive.setPower(0.15);
+            robot.leftDrive.setPower(0.40);
             //sleep(250);
-            sleep(380);
+            sleep(700);
 
             //stop
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             sleep(1000);
 
-            //forward
-            robot.rightDrive.setPower(0.5);
-            robot.leftDrive.setPower(0.5);
-            sleep(650);
-//
-            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-//
-            //turn to left
-//            robot.rightDrive.setPower(0.75);
-//            robot.leftDrive.setPower(-0.75);
-//            sleep(650);
-//
-            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(1000);
-////
-//            //Drive forward
-//            robot.rightDrive.setPower(0.15);
-//            robot.leftDrive.setPower(0.15);
-//            sleep(1000);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(1000);
-////
-////            //turn to left
-//            robot.rightDrive.setPower(0.75);
-//            robot.leftDrive.setPower(-0.75);
-//            sleep(200);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(1000);
-////
-////            //Drive forward
-//            robot.rightDrive.setPower(0.5);
-//            robot.leftDrive.setPower(0.5);
-//            sleep(1000);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(900);
-//
-//            //Drop the marker
-            //robot.markServo.setPosition(0);
+
+
+
+            robot.clawServo.setPosition(1);
+
 
 
 
         }
         else{
             detector.disable();
-            robot.green.setPower(.48);
+            robot.green.setPower(.35);
 
 
-            sleep(2750);
+            sleep(7000);
 
             robot.green.setPower(0);
 
             robot.rightDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
-            sleep(350);
+            sleep(275);
 
             robot.leftDrive.setPower(0);
             robot.rightDrive.setPower(0);
             sleep(1000);
 
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
-            sleep(750);
-
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-
-            robot.rightDrive.setPower(0.5);
-            robot.leftDrive.setPower(0.5);
-            sleep(450);
-
-            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-
-
-            //forward
-            robot.rightDrive.setPower(0.5);
-            robot.leftDrive.setPower(0.5);
-            sleep(300);
-//
-            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-//
-            //turn to left
             robot.rightDrive.setPower(-0.75);
+            robot.leftDrive.setPower(0.90);
+            sleep(1400);
+
+            robot.rightDrive.setPower(0);
+            robot.leftDrive.setPower(0);
+            sleep(1000);
+
+            robot.rightDrive.setPower(0.5);
             robot.leftDrive.setPower(0.75);
             sleep(450);
-//
+
             //stop
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             sleep(1000);
-//
-            //Drive forward
-            robot.rightDrive.setPower(0.15);
-            robot.leftDrive.setPower(0.15);
-            sleep(1000);
-//
-//            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-//
-//            //turn to left
-//            robot.rightDrive.setPower(0.75);
-//            robot.leftDrive.setPower(-0.75);
-//            sleep(200);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(1000);
-////
-////            //Drive forward
-//            robot.rightDrive.setPower(0.5);
-//            robot.leftDrive.setPower(0.5);
-//            sleep(1000);
-////
-////            //stop
-//            robot.rightDrive.setPower(0);
-//            robot.leftDrive.setPower(0);
-//            sleep(900);
-//
+
+
+
 //            //Drop the marker
-            //robot.markServo.setPosition(0);
-
-
-
+            robot.clawServo.setPosition(1);
 
         }
 
+    }
+
+    public void encoderGreenWithoutTime(double speed,
+                                       double inches) {
+        int target;
+        // Ensure that the opmode is still active
+        if (opModeIsActive()) {
+
+            // Determine new target position, and pass to motor controller
+
+            target = robot.green.getCurrentPosition() + (int) (inches * COUNTS_PER_INCH);
+
+            //target = (int)inches;
+
+            robot.green.setTargetPosition(target);
+
+            // Turn On RUN_TO_POSITION
+
+            robot.green.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
 
+            // reset the timeout time and start motion.
+            runtime.reset();
+
+
+            robot.green.setPower(Math.abs(speed));
+
+            // keep looping while we are still active, and there is time left, and both motors are running.
+            while (opModeIsActive() && (robot.green.isBusy())) {
+
+                // Display it for the driver.
+                //telemetry.addData("Path1", "Running to %7d :%7d", target);
+                //telemetry.addData("Path2", "Running at %7d :%7d",
+                robot.green.getCurrentPosition();
+                telemetry.update();
+            }
+
+            robot.green.setPower(0);
+            //robot.rightDrive.setPower(0);
+
+            // Turn off RUN_TO_POSITION
+            //robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.green.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        }
 
     }
 

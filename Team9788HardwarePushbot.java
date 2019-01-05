@@ -14,7 +14,7 @@ public class Team9788HardwarePushbot {
     public DcMotor white    = null;
     public DcMotor green    = null;
     public DcMotor blue    = null;
-    public DcMotor red    = null;
+    //public DcMotor red    = null;
     public Servo clawServo   = null;
 
 
@@ -41,7 +41,7 @@ public class Team9788HardwarePushbot {
         //white   = hwMap.get(DcMotor.class, "WhiteMotor");
         green   = hwMap.get(DcMotor.class, "GreenMotor");
         blue   = hwMap.get(DcMotor.class, "BlueMotor");
-        red  = hwMap.get(DcMotor.class, "RedMotor");
+        //red  = hwMap.get(DcMotor.class, "RedMotor");
 
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
@@ -62,7 +62,7 @@ public class Team9788HardwarePushbot {
 //        white.setPower(0);
         green.setPower(0);
         blue.setPower(0);
-        red.setPower(0);
+        //red.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -73,7 +73,7 @@ public class Team9788HardwarePushbot {
         //white.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         green.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         blue.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        red.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //red.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         clawServo = hwMap.get(Servo.class, "clawServo");
 

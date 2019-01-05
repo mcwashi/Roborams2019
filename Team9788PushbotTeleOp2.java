@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
-@TeleOp(name="Pushbot: Team9788 Pushbot Teleop2", group="Pushbot")
+//@TeleOp(name="Pushbot: Team9788 Pushbot Teleop2", group="Pushbot")
 //@Disabled
 public class Team9788PushbotTeleOp2 extends OpMode {
 
@@ -44,12 +44,12 @@ public class Team9788PushbotTeleOp2 extends OpMode {
     }
     double left;
     double right;
-    double whiteMotor;
-    double yellowMotor;
+    //    double whiteMotor;
+    double yellowValue;
     double greenMotor;
     double blueMotor;
-    double redMotor;
-    
+//    double redMotor;
+
     /*
      * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
      */
@@ -59,26 +59,25 @@ public class Team9788PushbotTeleOp2 extends OpMode {
 
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        left = gamepad1.left_stick_y;
-        right = gamepad1.right_stick_y;
-
-        yellowMotor = gamepad2.left_stick_y;
+        right = -gamepad1.left_stick_y;
+        left = -gamepad1.right_stick_y;
+        yellowValue = gamepad2.right_trigger - gamepad2.left_trigger;
 
 
 
 
         //yellowMotor = -gamepad2.right_stick_y;
-       // whiteMotor = gamepad2.right_stick_y;
+        // whiteMotor = gamepad2.right_stick_y;
 
         robot.leftDrive.setPower(left);
         robot.rightDrive.setPower(right);
-       // robot.white.setPower(whiteMotor);//changed**
-        //robot.yellow.setPower(yellowMotor);//changed***
-        robot.green.setPower(greenMotor);
-        robot.blue.setPower(blueMotor);
-        robot.red.setPower(redMotor);
-        robot.yellow.setPower(yellowMotor);
-        //robot.white.setPower(1);
+        // robot.white.setPower(whiteMotor);//changed**
+        robot.yellow.setPower(yellowValue);//changed***
+//        robot.green.setPower(greenMotor);
+//        robot.blue.setPower(blueMotor);
+//        robot.red.setPower(redMotor);
+        //robot.yellow.setPower(yellowMotor);
+//        robot.white.setPower(1);
 
 
         //Continous Servo...
@@ -132,16 +131,19 @@ public class Team9788PushbotTeleOp2 extends OpMode {
             robot.green.setPower(0);
         }
 
-        if (gamepad2.dpad_up) {
+
+
+        if (gamepad2.y) {
             robot.blue.setPower(-1);
         }
-        else if (gamepad2.dpad_down) {
+        else if (gamepad2.a) {
             robot.blue.setPower(1);
         }
         else {
             robot.blue.setPower(0);
         }
 
+/*
         if (gamepad2.dpad_left) {
             robot.red.setPower(1);
         }
@@ -151,14 +153,19 @@ public class Team9788PushbotTeleOp2 extends OpMode {
         else {
             robot.red.setPower(0);
         }
+*/
 
 
 
 
         // Send telemetry message to signify robot running;
         //telemetry.addData("claw",  "Offset = %.2f", clawOffset);
-        telemetry.addData("leftMarcus",  "%.2f", left);
-        //telemetry.addData("right", "%.2f", right);
+        telemetry.addData("left",  "%.2f", left);
+        telemetry.addData("right", "%.2f", right);
+//        telemetry.addData("Blue",   "%.2f", blueMotor);
+        telemetry.addData("Yellow",   "%.2f", yellowValue);
+//        telemetry.addData("Green",   "%.2f", greenMotor);
+
     }
 
     /*

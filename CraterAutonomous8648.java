@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-//@Autonomous(name="Pushbot: Team8648 Autonomous Crater", group="Pushbot")
+@Autonomous(name="Pushbot: Team8648 Autonomous Crater", group="Pushbot")
 //@Disabled
 public class CraterAutonomous8648 extends LinearOpMode {
 
@@ -100,7 +100,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
 
             detector.disable();
             robot.lift.setPower(.48);
-            sleep(2750);
+            sleep(2600);
 
             robot.lift.setPower(0);
 
@@ -121,10 +121,10 @@ public class CraterAutonomous8648 extends LinearOpMode {
             robot.leftDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
             //sleep(250);
-            sleep(500);
+            sleep(625);
 
 
             //stop
@@ -135,17 +135,17 @@ public class CraterAutonomous8648 extends LinearOpMode {
 
 
             //backwards
-            robot.rightDrive.setPower(-0.5);
+            robot.rightDrive.setPower(-0.65);
             robot.leftDrive.setPower(-0.5);
-            sleep(550);
+            sleep(675);
 //
             //stop
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             sleep(1000);
 //
-            //turn to left
-            robot.rightDrive.setPower(0.75);
+            //2nd turn to left
+            robot.rightDrive.setPower(0.95);
             robot.leftDrive.setPower(-0.75);
            sleep(850);
             // sleep(800);
@@ -156,7 +156,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
             //Drive forward
-            robot.rightDrive.setPower(0.15);
+            robot.rightDrive.setPower(0.40);
             robot.leftDrive.setPower(0.15);
             sleep(1000);
 //
@@ -166,7 +166,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
               sleep(1000);
 //
 //            //turn to left
-              robot.rightDrive.setPower(0.75);
+              robot.rightDrive.setPower(0.95);
               robot.leftDrive.setPower(-0.75);
               //sleep(200);
               sleep(175);
@@ -177,7 +177,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
               sleep(1000);
 //
 //            //Drive forward
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
             sleep(1000);
             //sleep(975);
@@ -188,7 +188,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(900);
 //
 //            //Drop the marker
-            robot.markServo.setPosition(0);
+            robot.markServo.setPosition(1);
 
 
 
@@ -209,7 +209,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             robot.lift.setPower(.48);
 
 
-            sleep(2750);
+            sleep(2600);
 
             robot.lift.setPower(0);
 
@@ -221,7 +221,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             robot.rightDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.75);
+            robot.rightDrive.setPower(0.85);
             robot.leftDrive.setPower(-0.75);
             sleep(470);
 
@@ -229,7 +229,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             robot.leftDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
             //sleep(250);
             sleep(380);
@@ -240,7 +240,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 
             //backwards
-            robot.rightDrive.setPower(-0.5);
+            robot.rightDrive.setPower(-0.75);
             robot.leftDrive.setPower(-0.5);
             sleep(400);
 //
@@ -250,7 +250,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
             //turn to left
-            robot.rightDrive.setPower(0.75);
+            robot.rightDrive.setPower(0.85);
             robot.leftDrive.setPower(-0.75);
             sleep(650);
 //
@@ -260,7 +260,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
             //Drive forward
-            robot.rightDrive.setPower(0.15);
+            robot.rightDrive.setPower(0.35);
             robot.leftDrive.setPower(0.15);
             sleep(1000);
 //
@@ -270,9 +270,9 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
 //            //turn to left
-            robot.rightDrive.setPower(0.75);
+            robot.rightDrive.setPower(0.90);
             robot.leftDrive.setPower(-0.75);
-            sleep(200);
+            sleep(225);
 //
 //            //stop
             robot.rightDrive.setPower(0);
@@ -280,7 +280,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
 //            //Drive forward
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
             sleep(1000);
 //
@@ -290,7 +290,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(900);
 //
 //            //Drop the marker
-            robot.markServo.setPosition(0);
+            robot.markServo.setPosition(1);
 
 
 
@@ -300,7 +300,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             robot.lift.setPower(.48);
 
 
-            sleep(2750);
+            sleep(2600);
 
             robot.lift.setPower(0);
 
@@ -312,7 +312,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             robot.rightDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.75);
+            robot.rightDrive.setPower(0.95);
             robot.leftDrive.setPower(-0.75);
             sleep(750);
 
@@ -320,7 +320,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             robot.leftDrive.setPower(0);
             sleep(500);
 
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
             //sleep(250);
 
@@ -333,7 +333,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
 
 
             //backwards
-            robot.rightDrive.setPower(-0.5);
+            robot.rightDrive.setPower(-0.75);
             robot.leftDrive.setPower(-0.5);
             sleep(550);
 //
@@ -353,7 +353,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
             //Drive forward
-            robot.rightDrive.setPower(0.15);
+            robot.rightDrive.setPower(0.50);
             robot.leftDrive.setPower(0.15);
             sleep(1000);
 //
@@ -363,9 +363,9 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
 //            //turn to left
-            robot.rightDrive.setPower(0.75);
+            robot.rightDrive.setPower(0.90);
             robot.leftDrive.setPower(-0.75);
-            sleep(200);
+            sleep(350);
 //
 //            //stop
             robot.rightDrive.setPower(0);
@@ -373,7 +373,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
 //            //Drive forward
-            robot.rightDrive.setPower(0.5);
+            robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(0.5);
             sleep(1000);
 //
@@ -383,7 +383,7 @@ public class CraterAutonomous8648 extends LinearOpMode {
             sleep(900);
 //
 //            //Drop the marker
-            robot.markServo.setPosition(0);
+            robot.markServo.setPosition(1);
 
 
 

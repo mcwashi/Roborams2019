@@ -14,18 +14,20 @@ import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-//@Autonomous(name="Autonomous: Encoder Crater Autonomous 8648", group="Pushbot")
+//@Autonomous(name="Pushbot: Team8648 Encoder Autonomous Depot", group="Pushbot")
 //@Disabled
-public class EncoderCraterAutonomous8648 extends LinearOpMode {
+public class EncoderDepotAutonomous8648 extends LinearOpMode {
 
     Team8648HardwarePushbot robot = new Team8648HardwarePushbot();
-    HardwareMap hwMap           =  null;
+    HardwareMap hwMap = null;
 
 
     NormalizedColorSensor colorSensor;
-    /** The relativeLayout field is used to aid in providing interesting visual feedback
+    /**
+     * The relativeLayout field is used to aid in providing interesting visual feedback
      * in this sample application; you probably *don't* need something analogous when you
-     * use a color sensor on your robot */
+     * use a color sensor on your robot
+     */
     View relativeLayout;
 
     private ElapsedTime runtime = new ElapsedTime();
@@ -66,8 +68,6 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
         detector.enable(); // Start the detector!
 
 
-
-
         //robot.colorSensor = hwMap.get(NormalizedColorSensor.class, "ColorSensor");
 
         robot.leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -77,7 +77,7 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
         robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // hsvValues is an array that will hold the hue, saturation, and value information.
-        float hsvValues[] = {0F,0F,0F};
+        float hsvValues[] = {0F, 0F, 0F};
 
         // values is a reference to the hsvValues array.
         final float values[] = hsvValues;
@@ -91,39 +91,44 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
         Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
 
 
-
-
-
         //robot.colorSensor.enableLed(bLedOn);
 
-        if((detector.getXPosition() < 680)  && (detector.getXPosition() > 405)){
+        if ((detector.getXPosition() < 680) && (detector.getXPosition() > 405)) {
 
-            detector.disable(); //disable the camera
-            encoderLift(DRIVE_SPEED, 12, 4.0);
-//            robot.lift.setPower(.48);
-//            sleep(2750);
-//
+            detector.disable();
+            //robot.lift.setPower(.48);
+            //sleep(2600);
+            //encoderLift(DRIVE_SPEED, 10, 0);
+
+            encoderLiftWithoutTime(DRIVE_SPEED, 4);
+
+
+
+            //robot.lift.setPower(0);
+
+            //sleep(500);
+
+            //backup
+            //encoderDrive(DRIVE_SPEED,  -2.5,  -2.5, 1.0);
+
+
+
+
+
+
 //            robot.lift.setPower(0);
 //
-//
-//
-//
-//            //robot.rightDrive.setPower(-0.5);
-//            //robot.leftDrive.setPower(-0.5);
-//            //sleep(350);
-//
-//            encoderDrive(TURN_SPEED,  -.5,  .5, 1.0);
+//            robot.rightDrive.setPower(-0.5);
+//            robot.leftDrive.setPower(-0.5);
+//            sleep(350);
 //
 //            robot.leftDrive.setPower(0);
 //            robot.rightDrive.setPower(0);
 //            sleep(500);
 //
-//            //robot.rightDrive.setPower(0.75);
-//            //robot.leftDrive.setPower(-0.75);
-//            //sleep(325);
-//
-//            encoderDrive(TURN_SPEED,  -.25,  .25, 1.0);
-//
+//            robot.rightDrive.setPower(0.75);
+//            robot.leftDrive.setPower(-0.75);
+//            sleep(400);
 //
 //            robot.rightDrive.setPower(0);
 //            robot.leftDrive.setPower(0);
@@ -141,11 +146,10 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
 //            sleep(1000);
 //
 //
-//
-//            //backwards
-//            robot.rightDrive.setPower(-0.5);
-//            robot.leftDrive.setPower(-0.5);
-//            sleep(550);
+//            //forward
+//            robot.rightDrive.setPower(0.5);
+//            robot.leftDrive.setPower(0.5);
+//            sleep(500);
 ////
 //            //stop
 //            robot.rightDrive.setPower(0);
@@ -155,9 +159,8 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
 //            //turn to left
 //            robot.rightDrive.setPower(0.75);
 //            robot.leftDrive.setPower(-0.75);
-//           sleep(850);
-//            // sleep(800);
-//
+//            sleep(650);
+////
 //            //stop
 //            robot.rightDrive.setPower(0);
 //            robot.leftDrive.setPower(0);
@@ -166,52 +169,18 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
 //            //Drive forward
 //            robot.rightDrive.setPower(0.15);
 //            robot.leftDrive.setPower(0.15);
-//            sleep(1000);
-////
-////            //stop
-//              robot.rightDrive.setPower(0);
-//              robot.leftDrive.setPower(0);
-//              sleep(1000);
-////
-////            //turn to left
-//              robot.rightDrive.setPower(0.75);
-//              robot.leftDrive.setPower(-0.75);
-//              //sleep(200);
-//              sleep(175);
-////
-////            //stop
-//              robot.rightDrive.setPower(0);
-//              robot.leftDrive.setPower(0);
-//              sleep(1000);
-////
-////            //Drive forward
-//            robot.rightDrive.setPower(0.5);
-//            robot.leftDrive.setPower(0.5);
-//            sleep(1000);
-//            //sleep(975);
+//            sleep(500);
 ////
 ////            //stop
 //            robot.rightDrive.setPower(0);
 //            robot.leftDrive.setPower(0);
-//            sleep(900);
-////
-////            //Drop the marker
+//            sleep(1000);
+//
 //            robot.markServo.setPosition(0);
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//            telemetry.addData("IsAligned" , detector.getAligned()); // Is the bot aligned with the gold mineral?
-//            telemetry.addData("X Pos" , detector.getXPosition()); // Gold X position.
-        }
-        else if((detector.getXPosition() < 385)  && (detector.getXPosition() > 180)){
+
+            }
+            else if ((detector.getXPosition() < 385) && (detector.getXPosition() > 180)) {
 
             detector.disable();
             robot.lift.setPower(.48);
@@ -247,19 +216,9 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
             robot.leftDrive.setPower(0);
             sleep(1000);
 
-            //backwards
-            robot.rightDrive.setPower(-0.5);
-            robot.leftDrive.setPower(-0.5);
-            sleep(400);
-//
-            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-//
-            //turn to left
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
+            //forward
+            robot.rightDrive.setPower(0.5);
+            robot.leftDrive.setPower(0.5);
             sleep(650);
 //
             //stop
@@ -267,43 +226,51 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
             robot.leftDrive.setPower(0);
             sleep(1000);
 //
-            //Drive forward
-            robot.rightDrive.setPower(0.15);
-            robot.leftDrive.setPower(0.15);
-            sleep(1000);
+            //turn to left
+//            robot.rightDrive.setPower(0.75);
+//            robot.leftDrive.setPower(-0.75);
+//            sleep(650);
 //
-//            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-//
-//            //turn to left
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
-            sleep(200);
-//
-//            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-//
+            //stop
+//            robot.rightDrive.setPower(0);
+//            robot.leftDrive.setPower(0);
+//            sleep(1000);
+////
 //            //Drive forward
-            robot.rightDrive.setPower(0.5);
-            robot.leftDrive.setPower(0.5);
-            sleep(1000);
-//
-//            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(900);
+//            robot.rightDrive.setPower(0.15);
+//            robot.leftDrive.setPower(0.15);
+//            sleep(1000);
+////
+////            //stop
+//            robot.rightDrive.setPower(0);
+//            robot.leftDrive.setPower(0);
+//            sleep(1000);
+////
+////            //turn to left
+//            robot.rightDrive.setPower(0.75);
+//            robot.leftDrive.setPower(-0.75);
+//            sleep(200);
+////
+////            //stop
+//            robot.rightDrive.setPower(0);
+//            robot.leftDrive.setPower(0);
+//            sleep(1000);
+////
+////            //Drive forward
+//            robot.rightDrive.setPower(0.5);
+//            robot.leftDrive.setPower(0.5);
+//            sleep(1000);
+////
+////            //stop
+//            robot.rightDrive.setPower(0);
+//            robot.leftDrive.setPower(0);
+//            sleep(900);
 //
 //            //Drop the marker
             robot.markServo.setPosition(0);
 
 
-
-        }
-        else{
+        } else {
             detector.disable();
             robot.lift.setPower(.48);
 
@@ -318,7 +285,7 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
 
             robot.leftDrive.setPower(0);
             robot.rightDrive.setPower(0);
-            sleep(500);
+            sleep(1000);
 
             robot.rightDrive.setPower(0.75);
             robot.leftDrive.setPower(-0.75);
@@ -326,12 +293,10 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
 
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
-            sleep(500);
+            sleep(1000);
 
             robot.rightDrive.setPower(0.5);
             robot.leftDrive.setPower(0.5);
-            //sleep(250);
-
             sleep(450);
 
             //stop
@@ -340,10 +305,10 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 
 
-            //backwards
-            robot.rightDrive.setPower(-0.5);
-            robot.leftDrive.setPower(-0.5);
-            sleep(550);
+            //forward
+            robot.rightDrive.setPower(0.5);
+            robot.leftDrive.setPower(0.5);
+            sleep(300);
 //
             //stop
             robot.rightDrive.setPower(0);
@@ -351,9 +316,9 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
             //turn to left
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
-            sleep(300);
+            robot.rightDrive.setPower(-0.75);
+            robot.leftDrive.setPower(0.75);
+            sleep(450);
 //
             //stop
             robot.rightDrive.setPower(0);
@@ -371,31 +336,32 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
             sleep(1000);
 //
 //            //turn to left
-            robot.rightDrive.setPower(0.75);
-            robot.leftDrive.setPower(-0.75);
-            sleep(200);
-//
-//            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(1000);
-//
-//            //Drive forward
-            robot.rightDrive.setPower(0.5);
-            robot.leftDrive.setPower(0.5);
-            sleep(1000);
-//
-//            //stop
-            robot.rightDrive.setPower(0);
-            robot.leftDrive.setPower(0);
-            sleep(900);
+//            robot.rightDrive.setPower(0.75);
+//            robot.leftDrive.setPower(-0.75);
+//            sleep(200);
+////
+////            //stop
+//            robot.rightDrive.setPower(0);
+//            robot.leftDrive.setPower(0);
+//            sleep(1000);
+////
+////            //Drive forward
+//            robot.rightDrive.setPower(0.5);
+//            robot.leftDrive.setPower(0.5);
+//            sleep(1000);
+////
+////            //stop
+//            robot.rightDrive.setPower(0);
+//            robot.leftDrive.setPower(0);
+//            sleep(900);
 //
 //            //Drop the marker
             robot.markServo.setPosition(0);
 
-        }
 
+        }
     }
+
     public void encoderDrive(double speed,
                              double leftInches, double rightInches,
                              double timeoutS) {
@@ -406,8 +372,8 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
         if (opModeIsActive()) {
 
             // Determine new target position, and pass to motor controller
-            newLeftTarget = robot.leftDrive.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
-            newRightTarget = robot.rightDrive.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+            newLeftTarget = robot.leftDrive.getCurrentPosition() + (int) (leftInches * COUNTS_PER_INCH);
+            newRightTarget = robot.rightDrive.getCurrentPosition() + (int) (rightInches * COUNTS_PER_INCH);
             robot.leftDrive.setTargetPosition(newLeftTarget);
             robot.rightDrive.setTargetPosition(newRightTarget);
 
@@ -426,8 +392,8 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
                     (robot.leftDrive.isBusy() && robot.rightDrive.isBusy())) {
 
                 // Display it for the driver.
-                telemetry.addData("Path1",  "Running to %7d :%7d", newLeftTarget,  newRightTarget);
-                telemetry.addData("Path2",  "Running at %7d :%7d",
+                telemetry.addData("Path1", "Running to %7d :%7d", newLeftTarget, newRightTarget);
+                telemetry.addData("Path2", "Running at %7d :%7d",
                         robot.leftDrive.getCurrentPosition(),
                         robot.rightDrive.getCurrentPosition());
                 telemetry.update();
@@ -448,7 +414,7 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
 
     public void encoderLift(double speed,
                             double inches,
-                             double timeoutS) {
+                            double timeoutS) {
 
         int target;
 
@@ -457,14 +423,13 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
 
             // Determine new target position, and pass to motor controller
 
-            target = robot.lift.getCurrentPosition() + (int)(inches * COUNTS_PER_INCH);
+            target = robot.lift.getCurrentPosition() + (int) (inches * COUNTS_PER_INCH);
 
             robot.lift.setTargetPosition(target);
 
             // Turn On RUN_TO_POSITION
 
             robot.lift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
 
 
             // reset the timeout time and start motion.
@@ -479,24 +444,78 @@ public class EncoderCraterAutonomous8648 extends LinearOpMode {
                     (robot.lift.isBusy())) {
 
                 // Display it for the driver.
-                telemetry.addData("Path1",  "Running to %7d :%7d", target);
-                telemetry.addData("Path2",  "Running at %7d :%7d",
-                robot.lift.getCurrentPosition());
+                //telemetry.addData("Path1", "Running to %7d :%7d", target);
+                //telemetry.addData("Path2", "Running at %7d :%7d",
+                        robot.lift.getCurrentPosition();
                 telemetry.update();
             }
 
+
+
+//            while (opModeIsActive() &&
+//                    (runtime.seconds() < timeoutS) &&
+//                    (robot.leftDrive.isBusy() && robot.rightDrive.isBusy())) {
+//
+//                // Display it for the driver.
+//                telemetry.addData("Path1", "Running to %7d :%7d", newLeftTarget, newRightTarget);
+//                telemetry.addData("Path2", "Running at %7d :%7d",
+//                        robot.leftDrive.getCurrentPosition(),
+//                        robot.rightDrive.getCurrentPosition());
+//                telemetry.update();
+//            }
+//
             // Stop all motion;
 
 
-            robot.lift.setPower(0);
-
-            // Turn off RUN_TO_POSITION
-            robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
-            //  sleep(250);   // optional pause after each move
         }
+
     }
 
 
+    public void encoderLiftWithoutTime(double speed,
+                            double inches) {
+        int target;
+        // Ensure that the opmode is still active
+        if (opModeIsActive()) {
+
+            // Determine new target position, and pass to motor controller
+
+            target = robot.lift.getCurrentPosition() + (int) (inches * COUNTS_PER_INCH);
+
+            //target = (int)inches;
+
+            robot.lift.setTargetPosition(target);
+
+            // Turn On RUN_TO_POSITION
+
+            robot.lift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+
+            // reset the timeout time and start motion.
+            runtime.reset();
+
+
+            robot.lift.setPower(Math.abs(speed));
+
+            // keep looping while we are still active, and there is time left, and both motors are running.
+            while (opModeIsActive() && (robot.lift.isBusy())) {
+
+                // Display it for the driver.
+                //telemetry.addData("Path1", "Running to %7d :%7d", target);
+                //telemetry.addData("Path2", "Running at %7d :%7d",
+                robot.lift.getCurrentPosition();
+                telemetry.update();
+            }
+
+            robot.lift.setPower(0);
+            //robot.rightDrive.setPower(0);
+
+            // Turn off RUN_TO_POSITION
+            //robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.lift.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        }
+
+    }
 
 }
