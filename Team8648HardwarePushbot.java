@@ -105,6 +105,7 @@ public class Team8648HardwarePushbot {
         markServo = hwMap.get(Servo.class, "markServo");
         leftClaw.setPosition(MID_SERVO);
         rightClaw.setPosition(MID_SERVO);
+
         //markServo.setPosition(1);
 
     }

@@ -142,7 +142,7 @@ public class DepotAutonomous9788 extends LinearOpMode {
 
             robot.rightDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
-            sleep(250);
+            sleep(275);
 
             robot.leftDrive.setPower(0);
             robot.rightDrive.setPower(0);
@@ -203,9 +203,6 @@ public class DepotAutonomous9788 extends LinearOpMode {
             sleep(1000);
 
 
-
-//            //Drop the marker
-            robot.clawServo.setPosition(1);
 
         }
 
