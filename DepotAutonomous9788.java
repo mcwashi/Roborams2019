@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-//@Autonomous(name="Pushbot: Team9788 Autonomous Depot", group="Pushbot")
+@Autonomous(name="Pushbot: Team9788 Autonomous Depot", group="Pushbot")
 //@Disabled
 public class DepotAutonomous9788 extends LinearOpMode {
 
@@ -142,7 +142,7 @@ public class DepotAutonomous9788 extends LinearOpMode {
 
             robot.rightDrive.setPower(-0.5);
             robot.leftDrive.setPower(-0.5);
-            sleep(275);
+            sleep(250);
 
             robot.leftDrive.setPower(0);
             robot.rightDrive.setPower(0);
@@ -150,7 +150,7 @@ public class DepotAutonomous9788 extends LinearOpMode {
 
             robot.rightDrive.setPower(-0.75);
             robot.leftDrive.setPower(0.75);
-            sleep(800);
+            sleep(750);
 
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
@@ -158,22 +158,14 @@ public class DepotAutonomous9788 extends LinearOpMode {
 
             //First Drive
             robot.rightDrive.setPower(0.15);
-            robot.leftDrive.setPower(0.40);
+            robot.leftDrive.setPower(0.60);
             //sleep(250);
-            sleep(700);
+            sleep(800);
 
             //stop
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
             sleep(1000);
-
-
-
-
-            robot.clawServo.setPosition(1);
-
-
-
 
         }
         else{

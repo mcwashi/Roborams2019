@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
-//@TeleOp(name="Pushbot: Team9788 Pushbot Teleop2", group="Pushbot")
+@TeleOp(name="Pushbot: Team9788 Pushbot Teleop2", group="Pushbot")
 //@Disabled
 public class Team9788PushbotTeleOp2 extends OpMode {
 

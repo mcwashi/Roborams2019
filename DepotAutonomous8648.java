@@ -17,7 +17,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 
-@Autonomous(name="Pushbot: Team8648 Autonomous Depot", group="Pushbot")
+//@Autonomous(name="Pushbot: Team8648 Autonomous Depot", group="Pushbot")
 //@Disabled
 public class DepotAutonomous8648 extends LinearOpMode {
 
