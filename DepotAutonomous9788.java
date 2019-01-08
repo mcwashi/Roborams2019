@@ -187,7 +187,7 @@ public class DepotAutonomous9788 extends LinearOpMode {
 
             robot.rightDrive.setPower(-0.75);
             robot.leftDrive.setPower(0.90);
-            sleep(1400);
+            sleep(1100);
 
             robot.rightDrive.setPower(0);
             robot.leftDrive.setPower(0);
