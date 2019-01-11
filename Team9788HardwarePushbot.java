@@ -75,6 +75,10 @@ public class Team9788HardwarePushbot {
         blue.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         //red.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         clawServo = hwMap.get(Servo.class, "clawServo");
 
 

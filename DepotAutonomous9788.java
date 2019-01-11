@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Pushbot: Team9788 Autonomous Depot", group="Pushbot")
+//@Autonomous(name="Pushbot: Team9788 Autonomous Depot", group="Pushbot")
 //@Disabled
 public class DepotAutonomous9788 extends LinearOpMode {
 
